@@ -1,0 +1,107 @@
+from kivy.app import App
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.image import Image
+from kivy.uix.gridlayout import GridLayout
+from kivy.core.window import Window
+from kivy.uix.button import Button
+from kivy.uix.label import Label
+
+Window.size = (400,300)
+Window.clearcolor = (1, 1, 1, 1)
+ 
+
+ 
+class MyApp(App):	
+	title = 'Controle v0.1'	
+	def build(self):          
+          self.appwindow = GridLayout(cols=3, row_default_width=40, row_default_height=40)
+          
+      #Primeira Lampada
+          button11 = Button(text = 'Ligar', size_hint_x = 40)
+          l11 = Label(text = "[color=000000]Lampada 01[/color]", size_hint_x = 30, markup = True)            
+          i11 = Image(source = 'apagada.jpg', size=(500,500), size_hint_x = 50)
+          def buttonpress1(self):     
+              if button11.text == 'Ligar':
+                  i11.source = 'acessa.jpg'
+                  button11.text = 'Desligar'
+              else:
+                  i11.source = 'apagada.jpg'
+                  button11.text = 'Ligar'
+                  
+          button11.bind(on_release = buttonpress1)
+          self.appwindow.add_widget(l11)
+          self.appwindow.add_widget(button11)          
+          self.appwindow.add_widget(i11)
+      #--------------------------------------
+          
+      #Segunda Lampada
+          button21 = Button(text = 'Ligar', size_hint_x = 25)
+          l21 = Label(text = "[color=000000]Lampada 02[/color]", size_hint_x = 50, markup = True)
+          i21 = Image(source = 'apagada.jpg', size=(150,150))  
+          def buttonpress2(self):
+              if button21.text == 'Ligar':
+                  i21.source = 'acessa.jpg'
+                  button21.text = 'Desligar'
+              else:
+                  i21.source = 'apagada.jpg'
+                  button21.text = 'Ligar'
+                  
+          button21.bind(on_release = buttonpress2)
+          self.appwindow.add_widget(l21)
+          self.appwindow.add_widget(button21)
+          self.appwindow.add_widget(i21)
+      #--------------------------------------
+          
+      #Terceira Lampada                  
+          button31 = Button(text = 'Ligar', size_hint_x = 25)
+          l31 = Label(text = "[color=000000]Lampada 03[/color]", size_hint_x = 50, markup = True)
+          i31 = Image(source = 'apagada.jpg')  
+          def buttonpress3(self):
+              if button31.text == 'Ligar':
+                  i31.source = 'acessa.jpg'
+                  button31.text = 'Desligar'
+              else:
+                  i31.source = 'apagada.jpg'
+                  button31.text = 'Ligar'
+          button31.bind(on_release = buttonpress3)
+          self.appwindow.add_widget(l31)
+          self.appwindow.add_widget(button31)
+          self.appwindow.add_widget(i31)
+      #--------------------------------------
+          
+      #Todas as Lampadas
+          button41 = Button(text = 'Ligar', size_hint_x = 25)
+          l41 = Label(text = "[color=000000]Todas as Lampada[/color]", size_hint_x = 50, markup = True)
+          i41 = Image(source = 'apagada.jpg')  
+          def buttonpress4(self):
+              if button41.text == 'Ligar':
+                  i41.source = 'acessa.jpg'
+                  button41.text = 'Desligar'
+                  i31.source = 'acessa.jpg'
+                  button31.text = 'Desligar'
+                  i21.source = 'acessa.jpg'
+                  button21.text = 'Desligar'
+                  i11.source = 'acessa.jpg'
+                  button11.text = 'Desligar'
+              else:
+                  i41.source = 'apagada.jpg'
+                  button41.text = 'Ligar'
+                  i31.source = 'apagada.jpg'
+                  button31.text = 'Ligar'
+                  i21.source = 'apagada.jpg'
+                  button21.text = 'Ligar'
+                  i11.source = 'apagada.jpg'
+                  button11.text = 'Ligar'
+          button41.bind(on_release = buttonpress4)
+          self.appwindow.add_widget(l41)
+          self.appwindow.add_widget(button41)
+          self.appwindow.add_widget(i41)
+      #----------------------------------
+          
+          return self.appwindow		
+	
+ 
+if __name__ == '__main__':
+	MyApp().run()
+   
